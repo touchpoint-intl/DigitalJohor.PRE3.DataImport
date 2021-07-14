@@ -1,4 +1,5 @@
 ﻿using DigitalJohor.PRE3.EFCore;
+using DigitalJohor.PRE3.EFCore.Entities.Accounts;
 using DigitalJohor.PRE3.EFCore.Entities.Forms;
 using Microsoft.Data.SqlClient.Server;
 using System;
@@ -21,20 +22,20 @@ namespace DigitalJohor.PRE3.DataImport.ImportServices
 
         public async Task<Form> CreateNewForm(KetuaKampungDTO dto)
         {
-
+            var account = new Account();
             //string newRefNo = "PRE3" + account.Id.ToString("D6") + dto.IdentityNumber.Substring(dto.IdentityNumber.Length - 4);
             var form = new Form();
-            form.Name = dto.NamaMPKK;
+            form.Name = dto.NamaPengerusi;
             form.IdentityNumber = dto.NoIc;
             form.Phone = dto.NoTelefon;
             form.Address = "";
             form.Postcode = "";
             form.AccountNumber = dto.NoAcc;
-            form.AccountBeneficiary = dto.NamaMPKK;
+            form.AccountBeneficiary = dto.NamaPengerusi;
             //form.PartnerName = dto.PartnerName;
             //form.PartnerIdentityNumber = dto.PartnerIdentityNumber;
             //form.PartnerPhone = dto.PartnerPhone;
-            form.Account = 1;
+            form.Account = account;
             form.ApplicationId = 1;
             //form.AgeRangeId = dto.AgeRangeId;
             form.BankId = dto.BankId;

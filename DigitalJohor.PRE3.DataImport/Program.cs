@@ -6,6 +6,7 @@ using Serilog.Events;
 using Serilog.Sinks.MSSqlServer.Sinks.MSSqlServer.Options;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DigitalJohor.PRE3.DataImport
 {
@@ -18,7 +19,7 @@ namespace DigitalJohor.PRE3.DataImport
             _ketuaKampungService = ketuaKampungService;
         }
 
-        public void Main(string[] args)
+        static void Main(string[] args)
         {
 
             Console.WriteLine("Getting Connection ...");
@@ -32,7 +33,7 @@ namespace DigitalJohor.PRE3.DataImport
 
             string query = @"SELECT *
                                      FROM KetuaKampung
-                                     WHERE Id ;
+                                     WHERE NamaMPKK = 'KG SG PADANG' ;
                                      ";
 
             //define the SqlCommand object
@@ -69,7 +70,7 @@ namespace DigitalJohor.PRE3.DataImport
                         kKampung.Daerah = dr.GetString(8);
 
                         //display retrieved record
-                        //_ketuaKampungService.CreateNewForm(kKampung);
+                        CreateForm(kKampung);
                     }
                     Console.WriteLine("Retrieved records count: " + count);
                 }
@@ -104,6 +105,11 @@ namespace DigitalJohor.PRE3.DataImport
             }
 
             Console.Read();
+        }
+
+        public async void CreateForm(KetuaKampungDTO dto)
+        {
+            await _ketuaKampungService.CreateNewForm(dto);
         }
     }
 }
