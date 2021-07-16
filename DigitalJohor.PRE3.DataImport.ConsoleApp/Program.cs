@@ -47,7 +47,7 @@ namespace DigitalJohor.PRE3.DataImport
 
                     services.AddDigitalJohorPRE3EFCore(configuration);
 
-                    services.AddKetuaKampungService(configuration);
+                    //services.AddKetuaKampungService(configuration);
 
                 })
                 .UseSerilog()

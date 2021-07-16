@@ -1,9 +1,0 @@
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/bin/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.deps.json
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/bin/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.dll
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/bin/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.pdb
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.csproj.AssemblyReference.cache
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.AssemblyInfoInputs.cache
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.AssemblyInfo.cs
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.csproj.CoreCompileInputs.cache
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.dll
-/Users/amirrudinyahaya/Workspace/DigitalJohor.PRE3.DataImport/DigitalJohor.PRE3.DataImport/obj/Debug/netstandard2.1/DigitalJohor.PRE3.DataImport.pdb

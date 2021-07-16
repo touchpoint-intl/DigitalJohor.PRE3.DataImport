@@ -1,10 +1,7 @@
-﻿using DigitalJohor.PRE3.DataImport.KetuaKampung;
-using DigitalJohor.PRE3.EFCore;
-using DigitalJohor.PRE3.EFCore.Entities.Accounts;
+﻿using DigitalJohor.PRE3.EFCore;
 using DigitalJohor.PRE3.EFCore.Entities.Forms;
 using DigitalJohor.PRE3.Enumerations;
 using Microsoft.Data.SqlClient;
-using Microsoft.Data.SqlClient.Server;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -12,7 +9,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TouchPoint.Claims.Abstractions;
 
 namespace DigitalJohor.PRE3.DataImport.KetuaKampung
 {
@@ -219,7 +215,6 @@ namespace DigitalJohor.PRE3.DataImport.KetuaKampung
 
 
         }
-
 
 
         private async Task<IEnumerable<KetuaKampungDTO>> GetAllFromOrignalDataSourceAsync()

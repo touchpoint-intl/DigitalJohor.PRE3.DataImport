@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TouchPoint.Claims.Abstractions" Version="1.0.0" />
     <PackageReference Include="TouchPoint.DTO" Version="1.0.5.14" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
