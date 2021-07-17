@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using DigitalJohor.PRE3.DataImport;
 using DigitalJohor.PRE3.EFCore;
@@ -65,7 +67,9 @@ namespace DigitalJohor.PRE3.BusSekolah
                 throw new InvalidOperationException("Name is required");
             }
 
-            var form = await _dbContext.Forms.FirstOrDefaultAsync(x => x.IdentityNumber == sanitizeIC);
+            var form = await _dbContext.Forms
+                                       .Include(a=>a.FormInitiatives)
+                                       .FirstOrDefaultAsync(x => x.IdentityNumber == sanitizeIC);
             if (form == null)
             {
 
@@ -148,15 +152,15 @@ namespace DigitalJohor.PRE3.BusSekolah
                 var sanitizeBank = dto.Bank.Replace(" ", string.Empty).Replace("\t", string.Empty);
                 if (!string.IsNullOrEmpty(sanitizeBank))
                 {
-                    if (sanitizeBank == "AffinBank")
+                    if (sanitizeBank == "Muamalat")
                     {
-                        form.BankId = 31;
+                        form.BankId = 28;
                     }
-                    else if (sanitizeBank == "Agrobank")
+                    else if (sanitizeBank == "RHB")
                     {
-                        form.BankId = 19;
+                        form.BankId = 27;
                     }
-                    else if (sanitizeBank == "AllianceBank")
+                    else if (sanitizeBank == "Alliance Bank")
                     {
                         form.BankId = 30;
                     }
@@ -164,23 +168,23 @@ namespace DigitalJohor.PRE3.BusSekolah
                     {
                         form.BankId = 14;
                     }
-                    else if (sanitizeBank == "BankIslamMalaysia")
+                    else if (sanitizeBank == "Bank Islam")
                     {
                         form.BankId = 10;
                     }
-                    else if (sanitizeBank == "BankRakyat")
+                    else if (sanitizeBank == "Bank Rakyat")
                     {
                         form.BankId = 11;
                     }
-                    else if (sanitizeBank == "BankSimpananNasional(BSN)")
+                    else if (sanitizeBank == "BSN")
                     {
                         form.BankId = 11;
                     }
-                    else if (sanitizeBank == "CIMBBank")
+                    else if (sanitizeBank == "CIMB")
                     {
                         form.BankId = 7;
                     }
-                    else if (sanitizeBank == "HongLeongBank")
+                    else if (sanitizeBank == "Hong Leong Bank")
                     {
                         form.BankId = 25;
                     }
@@ -188,42 +192,42 @@ namespace DigitalJohor.PRE3.BusSekolah
                     {
                         form.BankId = 9;
                     }
-                    else if (sanitizeBank == "MUAMALAT")
-                    {
-                        form.BankId = 28;
-                    }
-                    else if (sanitizeBank == "PublicBankBerhad")
+                    else if (sanitizeBank == "Public Bank")
                     {
                         form.BankId = 4;
                     }
-                    else if (sanitizeBank == "RHBBank")
+                    else if (sanitizeBank == "RHB")
                     {
                         form.BankId = 27;
                     }
-                    else if (sanitizeBank == "Al-RajhiBank")
+                    else if (sanitizeBank == "Al-Rajhi")
                     {
-                        form.BankId = 33;
+                        form.BankId = 32;
                     }
-                    else if (sanitizeBank == "HSBCBankMalaysia")
+                    else if (sanitizeBank == "HSBC")
                     {
                         form.BankId = 34;
                     }
-                    else if (sanitizeBank == "OCBCBankMalaysia")
+                    else if (sanitizeBank == "OCBC")
                     {
                         form.BankId = 35;
                     }
-                    else if (sanitizeBank == "StandardCharteredBankMalaysia")
+                    else if (sanitizeBank == "Standard Charted Bank")
                     {
                         form.BankId = 36;
                     }
-                    else if (sanitizeBank == "UOBMalaysiaBank")
+                    else if (sanitizeBank == "UOB")
                     {
                         form.BankId = 37;
                     }
-                }
-                else
-                {
-                    throw new InvalidOperationException("Invalid bank id");
+                    else if (sanitizeBank == "Agrobank")
+                    {
+                        form.BankId = 19;
+                    }
+                    else if (sanitizeBank == "Affin Bank")
+                    {
+                        form.BankId = 31;
+                    }
                 }
 
                 if (!string.IsNullOrEmpty(dto.NamaSyarikat))
@@ -231,7 +235,7 @@ namespace DigitalJohor.PRE3.BusSekolah
                     form.CompanyName = dto.NamaSyarikat;
                 }
 
-                if (!string.IsNullOrEmpty(dto.NoPendaftaranSyarikat))
+                if (!string.IsNullOrEmpty(dto.NoPendaftaranSyarikat) && dto.NoPendaftaranSyarikat.Length < 20)
                 {
                     form.CompanyRegistrationNumber = dto.NoPendaftaranSyarikat;
                 }
@@ -241,9 +245,9 @@ namespace DigitalJohor.PRE3.BusSekolah
                     form.PSVLicenseNumber = dto.NoLesenPSV;
                 }
 
-                if (!string.IsNullOrEmpty(dto.TarikhTamatLesenPSV))
+                if (!string.IsNullOrEmpty(dto.TarikhTamatLesenPSV) && DateTime.TryParseExact(dto.TarikhTamatLesenPSV, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtExpired))
                 {
-                    form.PSVLicenseExpiredDate = DateTime.ParseExact(dto.TarikhTamatLesenPSV, "dd/MM/yyyy", null);
+                    form.PSVLicenseExpiredDate = dtExpired;
                 }
 
                 form.CitizenshipId = 1;
@@ -267,19 +271,115 @@ namespace DigitalJohor.PRE3.BusSekolah
                 formInitiativeLog.Remarks = "Data dimuat naik";
 
                 await _dbContext.FormInitiativeLogs.AddAsync(formInitiativeLog);
-
-                await _dbContext.SaveChangesAsync("import service");
             }
             else
             {
-                var initiative = await _dbContext.Initiatives.FirstOrDefaultAsync(x => x.Id == 13);
-                var formIni = await _dbContext.FormInitiatives
-                    .Include(x => x.Form)
-                    .Include(x => x.Initiative)
-                    .FirstOrDefaultAsync(x => x.Form == form && x.Initiative == initiative);
-
-                if (formIni == null)
+                var sanitizeBank = dto.Bank.Replace(" ", string.Empty).Replace("\t", string.Empty);
+                if (!string.IsNullOrEmpty(sanitizeBank))
                 {
+                    if (sanitizeBank == "Muamalat")
+                    {
+                        form.BankId = 28;
+                    }
+                    else if (sanitizeBank == "RHB")
+                    {
+                        form.BankId = 27;
+                    }
+                    else if (sanitizeBank == "Alliance Bank")
+                    {
+                        form.BankId = 30;
+                    }
+                    else if (sanitizeBank == "AmBank")
+                    {
+                        form.BankId = 14;
+                    }
+                    else if (sanitizeBank == "Bank Islam")
+                    {
+                        form.BankId = 10;
+                    }
+                    else if (sanitizeBank == "Bank Rakyat")
+                    {
+                        form.BankId = 11;
+                    }
+                    else if (sanitizeBank == "BSN")
+                    {
+                        form.BankId = 11;
+                    }
+                    else if (sanitizeBank == "CIMB")
+                    {
+                        form.BankId = 7;
+                    }
+                    else if (sanitizeBank == "Hong Leong Bank")
+                    {
+                        form.BankId = 25;
+                    }
+                    else if (sanitizeBank == "Maybank")
+                    {
+                        form.BankId = 9;
+                    }
+                    else if (sanitizeBank == "Public Bank")
+                    {
+                        form.BankId = 4;
+                    }
+                    else if (sanitizeBank == "RHB")
+                    {
+                        form.BankId = 27;
+                    }
+                    else if (sanitizeBank == "Al-Rajhi")
+                    {
+                        form.BankId = 32;
+                    }
+                    else if (sanitizeBank == "HSBC")
+                    {
+                        form.BankId = 34;
+                    }
+                    else if (sanitizeBank == "OCBC")
+                    {
+                        form.BankId = 35;
+                    }
+                    else if (sanitizeBank == "Standard Charted Bank")
+                    {
+                        form.BankId = 36;
+                    }
+                    else if (sanitizeBank == "UOB")
+                    {
+                        form.BankId = 37;
+                    }
+                    else if (sanitizeBank == "Agrobank")
+                    {
+                        form.BankId = 19;
+                    }
+                    else if (sanitizeBank == "Affin Bank")
+                    {
+                        form.BankId = 31;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(dto.NamaSyarikat))
+                {
+                    form.CompanyName = dto.NamaSyarikat;
+                }
+
+                if (!string.IsNullOrEmpty(dto.NoPendaftaranSyarikat) && dto.NoPendaftaranSyarikat.Length < 20)
+                {
+                    form.CompanyRegistrationNumber = dto.NoPendaftaranSyarikat;
+                }
+
+                if (!string.IsNullOrEmpty(dto.NoLesenPSV))
+                {
+                    form.PSVLicenseNumber = dto.NoLesenPSV;
+                }
+
+                if (!string.IsNullOrEmpty(dto.TarikhTamatLesenPSV) && DateTime.TryParseExact(dto.TarikhTamatLesenPSV, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var dtExpired))
+                {
+                    form.PSVLicenseExpiredDate = dtExpired;
+                }
+
+
+                if (!form.FormInitiatives.Any(x => x.InitiativeId == 13))
+                {
+                    var initiative = await _dbContext.Initiatives.FirstOrDefaultAsync(x => x.Id == 13);
+
                     var formInitiative = new FormInitiative();
                     formInitiative.Form = form;
                     formInitiative.Initiative = initiative;
@@ -294,9 +394,9 @@ namespace DigitalJohor.PRE3.BusSekolah
 
                     await _dbContext.FormInitiativeLogs.AddAsync(formInitiativeLog);
 
-                    await _dbContext.SaveChangesAsync("import service");
                 }
             }
+            await _dbContext.SaveChangesAsync("import service");
 
         }
 
