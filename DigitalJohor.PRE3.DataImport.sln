@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.BusSekola
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataSource", "DataSource", "{587D9011-2115-4971-83BE-DFCC6E0F6946}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.LHDN", "DigitalJohor.PRE3.DataImport.LHDN\DigitalJohor.PRE3.DataImport.LHDN.csproj", "{1E6DCBCE-DD26-461A-AECA-65D6204A019B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +69,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 		{246013CF-0316-4427-AFDD-A0C9F93E6674} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 	EndGlobalSection
 EndGlobal

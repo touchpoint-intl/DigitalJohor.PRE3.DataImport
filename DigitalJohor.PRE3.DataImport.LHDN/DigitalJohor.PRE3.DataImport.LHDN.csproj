@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="TouchPoint.DTO" Version="1.0.5.14" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalJohor.PRE3.DataImport\DigitalJohor.PRE3.DataImport.csproj" />
+    <ProjectReference Include="..\..\DigitalJohor.PRE3\DigitalJohor.PRE3.Enumerations\DigitalJohor.PRE3.Enumerations.csproj" />
+    <ProjectReference Include="..\..\DigitalJohor.PRE3\DigitalJohor.PRE3.EFCore\DigitalJohor.PRE3.EFCore.csproj" />
+  </ItemGroup>
+</Project>
