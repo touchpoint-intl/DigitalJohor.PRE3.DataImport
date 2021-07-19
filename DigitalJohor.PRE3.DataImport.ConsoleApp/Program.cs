@@ -1,4 +1,5 @@
 ﻿using DigitalJohor.PRE3.DataImport.BusSekolah;
+using DigitalJohor.PRE3.DataImport.JTKK3;
 using DigitalJohor.PRE3.DataImport.KetuaKampung;
 using DigitalJohor.PRE3.DataImport.LHDN;
 using DigitalJohor.PRE3.EFCore;
@@ -52,8 +53,10 @@ namespace DigitalJohor.PRE3.DataImport
                     //services.AddKetuaKampungService(configuration);
 
                     //services.AddBusSekolahService(configuration);
+                    
+                    //services.AddLHDNService(configuration);
 
-                    services.AddLHDNService(configuration);
+                    services.AddJTKK3Service(configuration);
 
                 })
                 .UseSerilog()
