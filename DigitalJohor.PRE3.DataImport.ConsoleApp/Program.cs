@@ -1,5 +1,6 @@
 ﻿using DigitalJohor.PRE3.DataImport.BusSekolah;
 using DigitalJohor.PRE3.DataImport.KetuaKampung;
+using DigitalJohor.PRE3.DataImport.LHDN;
 using DigitalJohor.PRE3.EFCore;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -50,7 +51,9 @@ namespace DigitalJohor.PRE3.DataImport
 
                     //services.AddKetuaKampungService(configuration);
 
-                    services.AddBusSekolahService(configuration);
+                    //services.AddBusSekolahService(configuration);
+
+                    services.AddLHDNService(configuration);
 
                 })
                 .UseSerilog()
