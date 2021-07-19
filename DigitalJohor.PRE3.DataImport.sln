@@ -5,21 +5,23 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.EFCore", "..\DigitalJohor.PRE3\DigitalJohor.PRE3.EFCore\DigitalJohor.PRE3.EFCore.csproj", "{ED1CF254-8680-4B93-99D3-FBB763C53D9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.KetuaKampung", "DigitalJohor.PRE3.DataImport.KetuaKampung\DigitalJohor.PRE3.DataImport.KetuaKampung.csproj", "{246013CF-0316-4427-AFDD-A0C9F93E6674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.KetuaKampung", "DigitalJohor.PRE3.DataImport.KetuaKampung\DigitalJohor.PRE3.DataImport.KetuaKampung.csproj", "{246013CF-0316-4427-AFDD-A0C9F93E6674}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.ConsoleApp", "DigitalJohor.PRE3.DataImport.ConsoleApp\DigitalJohor.PRE3.DataImport.ConsoleApp.csproj", "{C395092A-CFF9-48F6-B6D6-7109DE7A1C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.ConsoleApp", "DigitalJohor.PRE3.DataImport.ConsoleApp\DigitalJohor.PRE3.DataImport.ConsoleApp.csproj", "{C395092A-CFF9-48F6-B6D6-7109DE7A1C87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport", "DigitalJohor.PRE3.DataImport\DigitalJohor.PRE3.DataImport.csproj", "{D7E3DCF0-793E-47BD-8C84-B7D373560E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport", "DigitalJohor.PRE3.DataImport\DigitalJohor.PRE3.DataImport.csproj", "{D7E3DCF0-793E-47BD-8C84-B7D373560E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.Enumerations", "..\DigitalJohor.PRE3\DigitalJohor.PRE3.Enumerations\DigitalJohor.PRE3.Enumerations.csproj", "{D0ED3FD4-0B6B-461A-A64F-884955F9D445}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.Enumerations", "..\DigitalJohor.PRE3\DigitalJohor.PRE3.Enumerations\DigitalJohor.PRE3.Enumerations.csproj", "{D0ED3FD4-0B6B-461A-A64F-884955F9D445}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.Shared", "..\DigitalJohor.PRE3\DigitalJohor.PRE3.Shared\DigitalJohor.PRE3.Shared.csproj", "{F07EE1B9-A6D4-44F1-9E67-23CAAB540298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.Shared", "..\DigitalJohor.PRE3\DigitalJohor.PRE3.Shared\DigitalJohor.PRE3.Shared.csproj", "{F07EE1B9-A6D4-44F1-9E67-23CAAB540298}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.BusSekolah", "DigitalJohor.PRE3.BusSekolah\DigitalJohor.PRE3.BusSekolah.csproj", "{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.BusSekolah", "DigitalJohor.PRE3.BusSekolah\DigitalJohor.PRE3.BusSekolah.csproj", "{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataSource", "DataSource", "{587D9011-2115-4971-83BE-DFCC6E0F6946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.LHDN", "DigitalJohor.PRE3.DataImport.LHDN\DigitalJohor.PRE3.DataImport.LHDN.csproj", "{1E6DCBCE-DD26-461A-AECA-65D6204A019B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.LHDN", "DigitalJohor.PRE3.DataImport.LHDN\DigitalJohor.PRE3.DataImport.LHDN.csproj", "{1E6DCBCE-DD26-461A-AECA-65D6204A019B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.JTKK3", "DigitalJohor.PRE3.DataImport.JTKK3\DigitalJohor.PRE3.DataImport.JTKK3.csproj", "{B0BA56FC-2B71-481B-A999-57A390598BEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,16 +61,21 @@ Global
 		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E6DCBCE-DD26-461A-AECA-65D6204A019B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BA56FC-2B71-481B-A999-57A390598BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BA56FC-2B71-481B-A999-57A390598BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BA56FC-2B71-481B-A999-57A390598BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BA56FC-2B71-481B-A999-57A390598BEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{246013CF-0316-4427-AFDD-A0C9F93E6674} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{1E6DCBCE-DD26-461A-AECA-65D6204A019B} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{B0BA56FC-2B71-481B-A999-57A390598BEF} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A26DF67-5BA0-4E3E-AC71-C4E9FF907AFA}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8F9C6EC9-A8D3-4589-A7A2-1037AE2D06A9} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
-		{246013CF-0316-4427-AFDD-A0C9F93E6674} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
-		{1E6DCBCE-DD26-461A-AECA-65D6204A019B} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 	EndGlobalSection
 EndGlobal

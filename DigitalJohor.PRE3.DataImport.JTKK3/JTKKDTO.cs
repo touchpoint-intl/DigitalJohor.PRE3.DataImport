@@ -14,6 +14,8 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
 
         public string Bangsa { get; set; }
 
+        public string Jantina { get; set; }
+
         public string StatusPerkahwinan { get; set; }
 
         public string NoIsiRumahTanggungan { get; set; }

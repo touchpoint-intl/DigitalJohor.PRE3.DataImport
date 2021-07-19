@@ -73,6 +73,51 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
                 form.Name = dto.NamePenerima;
                 form.IdentityNumber = sanitizeIC;
 
+                if (!string.IsNullOrEmpty(dto.Jantina))
+                {
+                    if (dto.Jantina == "M")
+                    {
+                        form.Gender = Enumerations.Gender.Lelaki;
+                    }
+                    else if (dto.Jantina == "F")
+                    {
+                        form.Gender = Enumerations.Gender.Perempuan;
+                    }
+                }
+                if (!string.IsNullOrEmpty(dto.Bangsa))
+                {
+                    if (dto.Bangsa == "Malay")
+                    {
+                        form.RaceId = 1;
+                    }
+                    else if (dto.Bangsa == "Chinese")
+                    {
+                        form.RaceId = 2;
+                    }
+                    else if (dto.Bangsa == "India")
+                    {
+                        form.RaceId = 3;
+                    }
+                    else if (dto.Bangsa == "Bumiputera Sarawak")
+                    {
+                        form.RaceId = 10;
+                    }
+                    else if (dto.Bangsa == "Orang Asli (Peninsular)")
+                    {
+                        form.RaceId = 11;
+                    }
+                    else if (dto.Bangsa == "Bumiputera Sabah")
+                    {
+                        form.RaceId = 12;
+                    }
+                    else if (dto.Bangsa == "Lain-lain")
+                    {
+                        form.RaceId = 4;
+                    }
+                }
+
+                var birthYear = Convert.ToInt32($"19{(dto.NoKadPengenalan.Substring(0, 2))}");
+                form.Age = DateTime.Now.Year - birthYear;
 
                 var phones = dto.NoTel.Split("/", StringSplitOptions.RemoveEmptyEntries);
 
@@ -231,22 +276,48 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
                 }
                 if (!string.IsNullOrEmpty(dto.PendapatanTerakhir))
                 {
-                    var pendapatan = Convert.ToInt32(dto.PendapatanTerakhir);
-                    if (pendapatan < 1001)
+                    var pendapatan = Convert.ToInt32(dto.PendapatanTerakhir.Replace(",", string.Empty));
+                    if (pendapatan < 2501)
                     {
+                        form.IncomeRangeId = 1;
+                    }
+                    else if (pendapatan > 2500 && pendapatan < 4001) {
+                        form.IncomeRangeId = 3;
+                    }
+                    else if (pendapatan > 4000 && pendapatan < 5001) {
+                        form.IncomeRangeId = 4;
+                    }
+                    else if (pendapatan > 5000) {
                         form.IncomeRangeId = 5;
                     }
-                    else if (pendapatan > 1000 && pendapatan < 2001) {
-                        form.IncomeRangeId = 6;
+                }
+
+                if (!string.IsNullOrEmpty(dto.TerimaBantuanPerkeso))
+                {
+                    var dependent = Convert.ToInt32(dto.NoIsiRumahTanggungan);
+                    if (dependent == 0)
+                    {
+                        form.DependentId = 10;
                     }
-                    else if (pendapatan > 2000 && pendapatan < 3001) {
-                        form.IncomeRangeId = 7;
+                    else if (dependent > 0 && dependent < 4)
+                    {
+                        form.DependentId = 11;
                     }
-                    else if (pendapatan > 3000 && pendapatan < 4001) {
-                        form.IncomeRangeId = 8;
+                    else if (dependent >= 4)
+                    {
+                        form.DependentId = 12;
                     }
-                    else if (pendapatan > 4000) {
-                        form.IncomeRangeId = 9;
+                }
+
+                if (!string.IsNullOrEmpty(dto.TerimaBantuanPerkeso))
+                {
+                    if (dto.TerimaBantuanPerkeso == "Yes")
+                    {
+                        form.BantuanPerkesoRecipient = true;
+                    }
+                    else
+                    {
+                        form.BantuanPerkesoRecipient = false;
                     }
                 }
 
@@ -272,7 +343,7 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
 
                 form.CitizenshipId = 1;
                 form.IdentityTypeId = 20; //MyKad
-                form.RefNo = "PRE3000000" + form.IdentityNumber.Substring(form.IdentityNumber.Length - 4); ;
+                form.RefNo = "PRE3000000" + form.IdentityNumber.Substring(form.IdentityNumber.Length - 4);
 
                 await _dbContext.Forms.AddAsync(form);
 
@@ -292,7 +363,7 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
 
                 await _dbContext.FormInitiativeLogs.AddAsync(formInitiativeLog);
 
-                await _dbContext.SaveChangesAsync("import service");
+                await _dbContext.SaveChangesAsync("JTKK3");
             }
             else
             {
@@ -318,7 +389,7 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
 
                     await _dbContext.FormInitiativeLogs.AddAsync(formInitiativeLog);
 
-                    await _dbContext.SaveChangesAsync("import service");
+                    await _dbContext.SaveChangesAsync("JTKK3");
                 }
             }
 
@@ -335,7 +406,7 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
             //create instanace of database connection
             var connection = new SqlConnection(_settings.ConnectionString);
 
-            string query = @"SELECT * FROM JTKK3 where BIL = 2";
+            string query = @"SELECT * FROM JTKK3";
 
             //define the SqlCommand object
             var command = new SqlCommand(query, connection);
@@ -371,6 +442,10 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
                         if (!reader.IsDBNull(4))
                         {
                             dto.Bangsa = reader.GetString(4);
+                        }
+                        if (!reader.IsDBNull(3))
+                        {
+                            dto.Jantina = reader.GetString(3);
                         }
                         if (!reader.IsDBNull(6))
                         {
