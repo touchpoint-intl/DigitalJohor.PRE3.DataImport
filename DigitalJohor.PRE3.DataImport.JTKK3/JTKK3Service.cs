@@ -276,7 +276,8 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
                 }
                 if (!string.IsNullOrEmpty(dto.PendapatanTerakhir))
                 {
-                    var pendapatan = Convert.ToInt32(dto.PendapatanTerakhir.Replace(",", string.Empty));
+                    var pendapatanString = Convert.ToDouble(dto.PendapatanTerakhir.Replace(",", string.Empty));
+                    var pendapatan = Convert.ToInt32(Math.Ceiling(pendapatanString));
                     if (pendapatan < 2501)
                     {
                         form.IncomeRangeId = 1;
