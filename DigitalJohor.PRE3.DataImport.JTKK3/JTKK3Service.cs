@@ -257,6 +257,10 @@ namespace DigitalJohor.PRE3.DataImport.JTKK3
                         form.BankId = 39;
                     }
                 }
+                else if (sanitizeBank == null)
+                {
+                    form.BankId = null;
+                }
                 else
                 {
                     throw new InvalidOperationException("Invalid bank id");
