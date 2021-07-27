@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitalJohor.PRE3.BusSekolah\DigitalJohor.PRE3.BusSekolah.csproj" />
+    <ProjectReference Include="..\DigitalJohor.PRE3.DataImport.DummyJ\DigitalJohor.PRE3.DataImport.DummyJ.csproj" />
     <ProjectReference Include="..\DigitalJohor.PRE3.DataImport.JTKK3\DigitalJohor.PRE3.DataImport.JTKK3.csproj" />
     <ProjectReference Include="..\DigitalJohor.PRE3.DataImport.KetuaKampung\DigitalJohor.PRE3.DataImport.KetuaKampung.csproj" />
     <ProjectReference Include="..\DigitalJohor.PRE3.DataImport.PBT\DigitalJohor.PRE3.DataImport.PBT.csproj" />

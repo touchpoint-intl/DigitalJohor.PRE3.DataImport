@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImpor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.PBT", "DigitalJohor.PRE3.DataImport.PBT\DigitalJohor.PRE3.DataImport.PBT.csproj", "{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.DummyJ", "DigitalJohor.PRE3.DataImport.DummyJ\DigitalJohor.PRE3.DataImport.DummyJ.csproj", "{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{1E6DCBCE-DD26-461A-AECA-65D6204A019B} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 		{B0BA56FC-2B71-481B-A999-57A390598BEF} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{3F0FFF8B-BFDD-4D05-BD0F-43057765DEDB} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A26DF67-5BA0-4E3E-AC71-C4E9FF907AFA}
