@@ -79,6 +79,9 @@ namespace DigitalJohor.PRE3.DataImport.PBT
                 form.Name = dto.Nama;
                 form.ApplicationId = 1;
 
+                var birthYear = Convert.ToInt32($"19{(dto.NO_KAD_PENGENALAN.Substring(0, 2))}");
+                form.Age = DateTime.Now.Year - birthYear;
+
                 if (!string.IsNullOrEmpty(dto.NO_TEL))
                 {
                     var phones = dto.NO_TEL.Split("/", StringSplitOptions.RemoveEmptyEntries);
@@ -123,7 +126,6 @@ namespace DigitalJohor.PRE3.DataImport.PBT
                     }
 
                 }
-
 
                 if (!string.IsNullOrEmpty(dto.BANGSA))
                 {
@@ -170,10 +172,104 @@ namespace DigitalJohor.PRE3.DataImport.PBT
                     {
                         sanitizeBank = dto.NO_AKAUN_BANK;
                     }
+
+                    sanitizeBank = sanitizeBank.ToLower();
+                    if (!string.IsNullOrEmpty(sanitizeBank))
+                    {
+                        if (sanitizeBank.Contains("affin"))
+                        {
+                            form.BankId = 31;
+                        }
+                        else if (sanitizeBank.Contains("agro"))
+                        {
+                            form.BankId = 19;
+                        }
+                        else if (sanitizeBank.Contains("alliance"))
+                        {
+                            form.BankId = 30;
+                        }
+                        else if (sanitizeBank.Contains("ambank"))
+                        {
+                            form.BankId = 14;
+                        }
+                        else if ((sanitizeBank.Contains("bank") && sanitizeBank.Contains("islam")) || sanitizeBank.Contains("bank islam"))
+                        {
+                            form.BankId = 10;
+                        }
+                        else if (sanitizeBank.Contains("rakyat"))
+                        {
+                            form.BankId = 11;
+                        }
+                        else if (sanitizeBank.Contains("simpanan") || sanitizeBank.Contains("bsn"))
+                        {
+                            form.BankId = 11;
+                        }
+                        else if (sanitizeBank.Contains("cim"))
+                        {
+                            form.BankId = 7;
+                        }
+                        else if (sanitizeBank.Contains("leong"))
+                        {
+                            form.BankId = 25;
+                        }
+                        else if (sanitizeBank.Contains("may"))
+                        {
+                            form.BankId = 9;
+                        }
+                        else if (sanitizeBank.Contains("muamalat"))
+                        {
+                            form.BankId = 28;
+                        }
+                        else if (sanitizeBank.Contains("public"))
+                        {
+                            form.BankId = 4;
+                        }
+                        else if (sanitizeBank.Contains("rhb"))
+                        {
+                            form.BankId = 27;
+                        }
+                        else if (sanitizeBank == "Al-RajhiBank")
+                        {
+                            form.BankId = 33;
+                        }
+                        else if (sanitizeBank.Contains("hsbc"))
+                        {
+                            form.BankId = 34;
+                        }
+                        else if (sanitizeBank.Contains("cbc"))
+                        {
+                            form.BankId = 35;
+                        }
+                        else if (sanitizeBank.Contains("standard"))
+                        {
+                            form.BankId = 36;
+                        }
+                        else if (sanitizeBank.Contains("uob") || sanitizeBank.Contains("united"))
+                        {
+                            form.BankId = 37;
+                        }
+                        else if (sanitizeBank == "IND & COM BANK OF CHINA")
+                        {
+                            form.BankId = 38;
+                        }
+                        else if (sanitizeBank == "KUWAIT FINANCE HOUSE")
+                        {
+                            form.BankId = 39;
+                        }
+                    }
+                    else if (sanitizeBank == null)
+                    {
+                        form.BankId = null;
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("Invalid bank id");
+                    }
                 }
                 if (!string.IsNullOrEmpty(dto.NO_AKAUN_BANK))
                 {
-                    if (int.TryParse(dto.NO_AKAUN_BANK, out int num))
+                    bool containsInt = dto.NO_AKAUN_BANK.Any(char.IsDigit);
+                    if (containsInt)
                     {
                         form.AccountNumber = dto.NO_AKAUN_BANK;
                     }
@@ -182,105 +278,8 @@ namespace DigitalJohor.PRE3.DataImport.PBT
                         form.AccountNumber = dto.NAMA_BANK;
                     }
                 }
-                if (!string.IsNullOrEmpty(sanitizeBank))
-                {
-                    if (sanitizeBank == "AFFIN BANK BERHAD" || sanitizeBank == "AFFIN ISLAMIC BANK BERHAD")
-                    {
-                        form.BankId = 31;
-                    }
-                    else if (sanitizeBank == "AGRO" || sanitizeBank == "BANK AGRO" || sanitizeBank == "Agro Bank" || sanitizeBank == "AGRO BSNK")
-                    {
-                        form.BankId = 19;
-                    }
-                    else if (sanitizeBank == "ALLIANCE ISLAMIC BANK" || sanitizeBank == "ALLIANCE BANK" || sanitizeBank == "ALLIANCE")
-                    {
-                        form.BankId = 30;
-                    }
-                    else if (sanitizeBank == "AMBANK BERHAD" || sanitizeBank == "AM BANK BERHAD" || sanitizeBank == "AMBANK GROUP" || sanitizeBank == "AMBANK")
-                    {
-                        form.BankId = 14;
-                    }
-                    else if (sanitizeBank == "BANK ISLAM MALAYSIA BERHAD" || sanitizeBank == "BANK ISLAM")
-                    {
-                        form.BankId = 10;
-                    }
-                    else if (sanitizeBank == "BANK RAKYAT MALAYSIA" || sanitizeBank == "bank rakyat Malaysia" || sanitizeBank == "RAKYAT BANK")
-                    {
-                        form.BankId = 11;
-                    }
-                    else if (sanitizeBank == "BANK SIMPANAN NASIONAL" || sanitizeBank == "Bank BSN" || sanitizeBank == "Bank Simpanan Nasioanal"
-                        || sanitizeBank == "BANK SIMPANAN NASIONAL (BSN)" || sanitizeBank == "Bank Simpanan National" || sanitizeBank == "BSN")
-                    {
-                        form.BankId = 11;
-                    }
-                    else if (sanitizeBank == "CIMB BANK BERHAD" || sanitizeBank == "CIMB ISLAMIC BANK" || sanitizeBank == "CIMB BERHAD"
-                        || sanitizeBank == "CIMB (SOUTHERN)")
-                    {
-                        form.BankId = 7;
-                    }
-                    else if (sanitizeBank == "HONG LEONG" || sanitizeBank == "HONG LEONG ISLAMIC BANK" || sanitizeBank == "HongLeong Bank"
-                        || sanitizeBank == "HONG LEONG BANK" || sanitizeBank == "HONG LEONG BANK BERHAD")
-                    {
-                        form.BankId = 25;
-                    }
-                    else if (sanitizeBank == "MALAYAN BANKING BHD (MAYBANK)" || sanitizeBank == "MALAYAN BANKING BERHAD" || sanitizeBank == "MAYBANK BERHAD" ||
-                        sanitizeBank == "MAYBANK MALAYSIA BERHAD" || sanitizeBank == "MALAYAN BANK" || sanitizeBank == "MALAYAN BANKING BHD"
-                        || sanitizeBank == "MBB" || sanitizeBank == "MAYBANK")
-                    {
-                        form.BankId = 9;
-                    }
-                    else if (sanitizeBank == "MUAMALAT" || sanitizeBank == "Bank Muamalat Malaysia Berhad" || sanitizeBank == "B.MUAMALAT"
-                        || sanitizeBank == "BANK MUAMALAT")
-                    {
-                        form.BankId = 28;
-                    }
-                    else if (sanitizeBank == "PUBLIC BANK" || sanitizeBank == "PUBLIC" || sanitizeBank == "Publick Bank" 
-                        || sanitizeBank == "PUBLIC BANK BERHAD" || sanitizeBank == "PUBLIC ISLAMIC BANK BERHAD" || sanitizeBank == "PUBLIC BANK BHD")
-                    {
-                        form.BankId = 4;
-                    }
-                    else if (sanitizeBank == "RHB BANK BHD" || sanitizeBank == "RHB" || sanitizeBank == "RHB BANK" || sanitizeBank == "RHB ISLAMIC BANK BERHAD"
-                        || sanitizeBank == "RHB ISLAMIC BANK")
-                    {
-                        form.BankId = 27;
-                    }
-                    else if (sanitizeBank == "Al-RajhiBank")
-                    {
-                        form.BankId = 33;
-                    }
-                    else if (sanitizeBank == "HSBC (M) BERHAD")
-                    {
-                        form.BankId = 34;
-                    }
-                    else if (sanitizeBank == "OCBC BANK (M'SIA) BHD" || sanitizeBank == "OCBC BANK BHD")
-                    {
-                        form.BankId = 35;
-                    }
-                    else if (sanitizeBank == "STANDARD CHARTERED" || sanitizeBank == "Standard chartered bank")
-                    {
-                        form.BankId = 36;
-                    }
-                    else if (sanitizeBank == "UOB" || sanitizeBank == "UNITED OVERSEAS BANK")
-                    {
-                        form.BankId = 37;
-                    }
-                    else if (sanitizeBank == "IND & COM BANK OF CHINA")
-                    {
-                        form.BankId = 38;
-                    }
-                    else if (sanitizeBank == "KUWAIT FINANCE HOUSE")
-                    {
-                        form.BankId = 39;
-                    }
-                }
-                else if (sanitizeBank == null)
-                {
-                    form.BankId = null;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Invalid bank id");
-                }
+
+                
 
 
                 if (!string.IsNullOrEmpty(dto.JENIS))
@@ -607,7 +606,7 @@ namespace DigitalJohor.PRE3.DataImport.PBT
       ,[JENIS]
       ,[DUN]
       ,[PARLIMEN]
-      ,[DAERAH] FROM PBT";
+      ,[DAERAH] FROM PBT where NO > 7792";
 
             //define the SqlCommand object
             var command = new SqlCommand(query, connection);
