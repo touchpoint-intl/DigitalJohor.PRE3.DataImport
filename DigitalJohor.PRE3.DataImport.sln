@@ -23,7 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImpor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.JTKK3", "DigitalJohor.PRE3.DataImport.JTKK3\DigitalJohor.PRE3.DataImport.JTKK3.csproj", "{B0BA56FC-2B71-481B-A999-57A390598BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.DataImport.PBT", "DigitalJohor.PRE3.DataImport.PBT\DigitalJohor.PRE3.DataImport.PBT.csproj", "{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalJohor.PRE3.DataImport.PBT", "DigitalJohor.PRE3.DataImport.PBT\DigitalJohor.PRE3.DataImport.PBT.csproj", "{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.PemberhentianKerja", "DigitalJohor.PRE3.PemberhentianKerja\DigitalJohor.PRE3.PemberhentianKerja.csproj", "{71675322-A3C0-4449-8FE3-DB5241199AD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalJohor.PRE3.PenerimaPRE_JM", "DigitalJohor.PRE3.PenerimaPRE_JM\DigitalJohor.PRE3.PenerimaPRE_JM.csproj", "{04F27B0C-7573-4F36-B054-498BC35EA756}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +75,14 @@ Global
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71675322-A3C0-4449-8FE3-DB5241199AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71675322-A3C0-4449-8FE3-DB5241199AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71675322-A3C0-4449-8FE3-DB5241199AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71675322-A3C0-4449-8FE3-DB5241199AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F27B0C-7573-4F36-B054-498BC35EA756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F27B0C-7573-4F36-B054-498BC35EA756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F27B0C-7573-4F36-B054-498BC35EA756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F27B0C-7573-4F36-B054-498BC35EA756}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +93,8 @@ Global
 		{1E6DCBCE-DD26-461A-AECA-65D6204A019B} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 		{B0BA56FC-2B71-481B-A999-57A390598BEF} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 		{24F8DFA1-7020-404C-A29E-4CE7F08DE2B3} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{71675322-A3C0-4449-8FE3-DB5241199AD8} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
+		{04F27B0C-7573-4F36-B054-498BC35EA756} = {587D9011-2115-4971-83BE-DFCC6E0F6946}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A26DF67-5BA0-4E3E-AC71-C4E9FF907AFA}
